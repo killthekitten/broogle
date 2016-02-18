@@ -31,7 +31,7 @@ end
 
 ## TODOs
 
-– Migration generator
-– Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
-– Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
-– Move options from concern to class
+– [ ] Migration generator
+– [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
+– [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
+– [ ] Move options from concern to class
