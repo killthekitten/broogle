@@ -1,5 +1,5 @@
 .col-sm-12.search-results__item
-  = simple_format famous_quote.content
+  = highlight simple_format(famous_quote.content), famous_quote.highlights
   %b
     –
-    = famous_quote.author.presence || "Anonymous"
+    = highlight (famous_quote.author.presence || "Anonymous"), famous_quote.highlights

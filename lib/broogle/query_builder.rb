@@ -26,7 +26,11 @@ module Broogle
       terms = splitter.new(query_string).split
       terms = terms.flat_map { |term| stemmer.new(term).stem }.uniq
       terms = terms - Array(stop_words)
-      query.joins(:broogle_stems).where("broogle_stems.column" => columns, "broogle_stems.content" => terms)
+      query
+        .select("#{scope.table_name}.*, ARRAY_AGG(broogle_stems.matched_string) AS highlights")
+        .group("#{scope.table_name}.id")
+        .joins(:broogle_stems)
+        .where("broogle_stems.column" => columns, "broogle_stems.content" => terms)
     end
   end
 end
