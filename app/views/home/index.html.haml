@@ -1,0 +1,19 @@
+%h1.logo.text-center
+  Broogle
+
+.row
+  = form_tag url_for, method: :get, class: "form-horizontal" do
+    .input-group
+      = text_field_tag :q, nil, class: "form-control input-lg"
+      .input-group-btn
+        = submit_tag "Broogle it!", class: "btn btn-primary btn-lg"
+
+.search-results
+  .row
+    - if @collection.any?
+      = render @collection
+    - else
+      .no-results.text-center
+        %p Nothing found :(
+        %small Try to change your query
+    = paginate @collection, theme: :bootstrap

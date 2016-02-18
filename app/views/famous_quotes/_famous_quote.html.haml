@@ -1,0 +1,5 @@
+.col-sm-12.search-results__item
+  = simple_format famous_quote.content
+  %b
+    –
+    = famous_quote.author.presence || "Anonymous"

@@ -1,0 +1,12 @@
+:ruby
+  rel = if page.next?
+          "next"
+        else
+          page.prev? ? "prev" : nil
+        end
+- if page.current?
+  %li.active
+    = content_tag :a, page, remote: remote, rel: rel
+- else
+  %li
+    = link_to page, url, remote: remote, rel: rel
