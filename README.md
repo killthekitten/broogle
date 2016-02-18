@@ -25,13 +25,28 @@ end
 
 ## Behaviors
 
+Any sort of additional functionality, which can be mixed in on every level: indexing, querying, displaying.
+Available behaviors: `AutoIndexer`, `Highlighter`.
+
 ## Rankings
 
-## Indexing
+Rankings. Default ranking (`DumbRanking`) counts matches.
+
+## Sortings
+
+Default sorting (`DumbSorting`) sorts only by ranking.
+
+## Stemmers
+
+Default stemmer (`DumbStemmer`) uses gem `fast-stemmer` (took from @pokonski's repo).
+
+## Splitter
+
+Default splitter (`DumbSplitter`) splits according to special array within the splitter (took from @pokonski's repo).
 
 ## TODOs
 
-– [ ] Migration generator
-– [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
-– [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
-– [ ] Move options from concern to class
+- [ ] Migration generator
+- [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
+- [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
+- [ ] Move options from concern to class
