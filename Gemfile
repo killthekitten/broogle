@@ -25,4 +25,13 @@ gem "scss_lint", require: false, group: :development
 gem "haml_lint", require: false, group: :development
 gem "pry-rails"
 
-ruby "2.3.0"
+gem "rspec-rails", "~> 3.0"
+gem "simplecov", group: [:test], require: false
+gem "factory_girl_rails"
+gem "capybara", github: "jnicklas/capybara", group: :test
+gem "fivemat"
+
+# App
+gem "fast-stemmer"
+
+ruby File.read(".ruby-version").strip

@@ -4,7 +4,7 @@
 .row
   = form_tag url_for, method: :get, class: "form-horizontal" do
     .input-group
-      = text_field_tag :q, nil, class: "form-control input-lg"
+      = text_field_tag :q, params[:q], class: "form-control input-lg"
       .input-group-btn
         = submit_tag "Broogle it!", class: "btn btn-primary btn-lg"
 
