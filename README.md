@@ -11,6 +11,10 @@ stack.
 
 https://broogle.herokuapp.com/
 
+## Overview
+
+Broogle API is modular and can be customized via "Behaviors", "Rankers", "Orderers", "Stemmers" and "Splitters".
+
 ## ActiveRecord
 
 Broogle provides a mixin to use with any ActiveRecord model:
@@ -19,7 +23,7 @@ Broogle provides a mixin to use with any ActiveRecord model:
 class FamousQuote < ActiveRecord::Base
   include Broogle
 
-  enable_search columns: [:author_name, :content], behaviors: [:trigram, :highlight], ranking: :trigram
+  enable_search columns: [:author_name, :content], behaviors: ["CustomBehaviorClass"], ranker: "CustomRankerClass"
 end
 ```
 
@@ -84,8 +88,8 @@ Default splitter (`DumbSplitter`) splits according to special array within the s
 ## TODOs
 
 - [ ] Migration generator
-- [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
-- [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
+- [ ] Separate config file for `Options::DEFAULTS`
+- [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (`Behaviors::BackgroundAutoIndexer`)
 - [x] Move options from concern to class
 - [ ] Search engine elements should be less coupled (i.e. `DumbOrderer` knows about `DumbRanker`, `DumbRanker` expects query to be grouped etc.)
 - [ ] Highlighting could be more sophisticated, as for now it only gets matched words from the search query, not their positions.
