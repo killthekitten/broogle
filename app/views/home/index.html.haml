@@ -1,5 +1,5 @@
 %h1.logo.text-center
-  Broogle
+  %span Broogle
 
 .row
   = form_tag url_for, method: :get, class: "form-horizontal" do
@@ -13,7 +13,7 @@
     - if @collection.any?
       = render @collection
     - else
-      .no-results.text-center
+      .search-results__no-results.text-center
         %p Nothing found :(
         %small Try to change your query
     = paginate @collection, theme: :bootstrap
