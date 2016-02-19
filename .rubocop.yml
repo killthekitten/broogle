@@ -1,0 +1,60 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - config/**/*
+    - db/**/*
+    - local/**/*
+
+Rails:
+  Enabled: true
+
+Lint/EndAlignment:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Exclude:
+    - app/controllers/**/*
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Performance/Count:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false

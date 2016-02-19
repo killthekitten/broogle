@@ -25,7 +25,7 @@ module Broogle
     def apply_query_string(query)
       terms = options.splitter.new(query_string).split
       terms = terms.flat_map { |term| options.stemmer.new(term).stem }.uniq
-      terms = terms - Array(options.stop_words)
+      terms -= Array(options.stop_words)
       query
         .select("#{table_name}.*, ARRAY_AGG(broogle_stems.matched_string) AS highlights")
         .group("#{table_name}.id")

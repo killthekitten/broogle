@@ -8,7 +8,7 @@ module Broogle
       splitter: "::Broogle::Splitters::DumbSplitter",
       stemmer: "::Broogle::Stemmers::DumbStemmer",
       stop_words: %w(or and)
-    }
+    }.freeze
 
     attr_reader :options
 

@@ -1,7 +1,8 @@
 module Broogle
   module Splitters
     class DumbSplitter
-      BREAKERS = [" ", "\n", "\t", ".", ",", ";", ":", "\\(", "\\)", "\\[", "\\]", '\'','"', '\\?', '\\!', '<', '>']
+      BREAKERS =
+        [" ", "\n", "\t", ".", ",", ";", ":", "\\(", "\\)", "\\[", "\\]", '\'', '"', '\\?', '\\!', "<", ">"].freeze
 
       def initialize(source)
         @source = source
