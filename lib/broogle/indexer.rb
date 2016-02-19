@@ -13,9 +13,9 @@ module Broogle
         BroogleStem.where(document: document).delete_all
         options.columns.each do |column_name|
           value = document.send(column_name)
-          terms = options.splitter.constantize.new(value).split
+          terms = options.splitter.new(value).split
           terms.each do |term|
-            stem = options.stemmer.constantize.new(term).stem
+            stem = options.stemmer.new(term).stem
             BroogleStem.create!(document: document, column: column_name, matched_string: term, content: stem)
           end
         end
