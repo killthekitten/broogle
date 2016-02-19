@@ -15,6 +15,8 @@ https://broogle.herokuapp.com/
 
 Broogle API is modular and can be customized via "Behaviors", "Rankers", "Orderers", "Stemmers" and "Splitters".
 
+Indexing performed via separate join table `broogle_stems`, which solves the problem of full-text search but probably will not scale for large datasets. 
+
 ## ActiveRecord
 
 Broogle provides a mixin to use with any ActiveRecord model:
