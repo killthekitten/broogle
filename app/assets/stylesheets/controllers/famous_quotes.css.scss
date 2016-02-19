@@ -1,0 +1,19 @@
+$no-results-color: #666;
+
+.search-results {
+  margin-top: 20px;
+
+  &__item {
+    padding: 10px 0 20px;
+  }
+
+  &__no-results {
+    color: $no-results-color;
+    font-size: 36px;
+    margin-top: 20px;
+  }
+}
+
+form {
+  margin-bottom: 20px;
+}

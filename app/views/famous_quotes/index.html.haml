@@ -8,9 +8,12 @@
       = text_field_tag :q, params[:q], class: "form-control input-lg"
       .input-group-btn
         = submit_tag "Broogle it!", class: "btn btn-primary btn-lg"
+  .col-sm-12
+    .text-center
+      = link_to "+ Add new quote", new_famous_quote_path, class: "new-quote-link"
 
-.search-results
-  .row
+.row
+  .search-results
     - if @collection.total_count > 0
       = render @collection
     - else

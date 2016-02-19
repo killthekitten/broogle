@@ -1,3 +1,30 @@
 //= require_tree ./lib
 //= require_tree ./controllers
 //= require_self
+
+$logo-color-base: rgba(0, 0, 255, .5);
+$logo-color-extra: rgba(255, 0, 0, .5);
+
+.logo {
+  margin: 50px auto;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  span {
+    color: $logo-color-base;
+    display: inline;
+    font: 80px Helvetica, Sans-Serif;
+    letter-spacing: -5px;
+    position: relative;
+
+    &::after {
+      color: $logo-color-extra;
+      content: 'Broogle';
+      left: 5px;
+      position: absolute;
+      top: 2px;
+    }
+  }
+}

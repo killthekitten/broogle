@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
+  root "famous_quotes#index"
+
+  resources :famous_quotes, only: [:index, :show, :new, :create], path: :quotes
 end

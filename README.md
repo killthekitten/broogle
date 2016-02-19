@@ -88,4 +88,4 @@ Default splitter (`DumbSplitter`) splits according to special array within the s
 - [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
 - [x] Move options from concern to class
 - [ ] Search engine elements should be less coupled (i.e. `DumbOrderer` knows about `DumbRanker`, `DumbRanker` expects query to be grouped etc.)
-- [ ] Highlighting could be more sophisticated, as for now it only gets matched words from the search query, not their positions. 
+- [ ] Highlighting could be more sophisticated, as for now it only gets matched words from the search query, not their positions.

@@ -33,5 +33,7 @@ gem "fivemat"
 
 # App
 gem "fast-stemmer"
+gem "simple_form"
+gem "responders"
 
 ruby File.read(".ruby-version").strip
