@@ -49,4 +49,4 @@ Default splitter (`DumbSplitter`) splits according to special array within the s
 - [ ] Migration generator
 - [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
 - [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
-- [ ] Move options from concern to class
+- [x] Move options from concern to class

@@ -1,14 +1,4 @@
 module Broogle
-  DEFAULT_OPTIONS = {
-    columns: [],
-    behaviors: ["::Broogle::Behaviors::Highlighter", "::Broogle::Behaviors::AutoIndexer"],
-    sorter: "::Broogle::Sorters::DumbSorter",
-    ranker: "::Broogle::Rankers::DumbRanker",
-    splitter: "::Broogle::Splitters::DumbSplitter",
-    stemmer: "::Broogle::Stemmers::DumbStemmer",
-    stop_words: %w(or and)
-  }
-
   extend ActiveSupport::Concern
 
   included do
