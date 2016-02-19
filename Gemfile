@@ -30,6 +30,7 @@ gem "simplecov", group: [:test], require: false
 gem "factory_girl_rails"
 gem "capybara", github: "jnicklas/capybara", group: :test
 gem "fivemat"
+gem "poltergeist"
 
 # App
 gem "fast-stemmer"
