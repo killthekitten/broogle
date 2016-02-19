@@ -17,6 +17,9 @@ module Broogle
 
       query = scope
       query = apply_query_string(query)
+      query = apply_ranking(query)
+      query = apply_ordering(query)
+      query = apply_behaviors(query)
       query
     end
 
@@ -27,10 +30,26 @@ module Broogle
       terms = terms.flat_map { |term| options.stemmer.new(term).stem }.uniq
       terms -= Array(options.stop_words)
       query
-        .select("#{table_name}.*, ARRAY_AGG(broogle_stems.matched_string) AS highlights")
         .group("#{table_name}.id")
         .joins(:broogle_stems)
         .where("broogle_stems.column" => options.columns, "broogle_stems.content" => terms)
+    end
+
+    def apply_ranking(query)
+      options.ranker.new(query).ranked_query
+    end
+
+    def apply_ordering(query)
+      options.orderer.new(query).ordered_query
+    end
+
+    def apply_behaviors(query)
+      patched_query = query
+      options.behaviors.each do |behavior|
+        klass = "#{behavior}::QueryPatch".safe_constantize
+        patched_query = klass.new(query).patched_query if klass.is_a?(Class)
+      end
+      patched_query
     end
   end
 end

@@ -1,14 +1,14 @@
 module Broogle
-  module Rankers
-    class DumbRanker
+  module Orderers
+    class DumbOrderer
       attr_reader :query
 
       def initialize(query)
         @query = query
       end
 
-      def ranked_query
-        query.select("COUNT(broogle_stems.id) AS rank")
+      def ordered_query
+        query.reorder("rank DESC")
       end
     end
   end

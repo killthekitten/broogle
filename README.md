@@ -28,13 +28,50 @@ end
 Any sort of additional functionality, which can be mixed in on every level: indexing, querying, displaying.
 Available behaviors: `AutoIndexer`, `Highlighter`.
 
-## Rankings
+Behavior should be implemented as a module, with an optional `QueryPatch` class defined within:
 
-Rankings. Default ranking (`DumbRanking`) counts matches.
+```ruby
+module Broogle
+  module Behaviors
+    module Highlighter
+      extend ActiveSupport::Concern
 
-## Sortings
+      class QueryPatch
+        attr_reader :query
 
-Default sorting (`DumbSorting`) sorts only by ranking.
+        def initialize(query)
+          @query = query
+        end
+
+        def patched_query
+          query.select("#{query.table_name}.*, ARRAY_AGG(broogle_stems.matched_string) AS highlights")
+        end
+      end
+    end
+  end
+end
+
+module Broogle
+  module Behaviors
+    module AutoIndexer
+      extend ActiveSupport::Concern
+
+      included do
+        after_save :update_broogle_terms!
+      end
+    end
+  end
+end
+```
+
+## Rankers
+
+Default ranker (`DumbRanker`) counts matches.
+
+## Orderers
+
+Default orderer (`DumbOrderer`) orders by ranking. It depends on existence of column `rank`, which is expected to be
+provided by any ranker.
 
 ## Stemmers
 
@@ -50,3 +87,4 @@ Default splitter (`DumbSplitter`) splits according to special array within the s
 - [ ] Separate config file for `QueryBuilder::DEFAULT_OPTIONS`
 - [ ] Current indexer uses `before_save` hook, better create new one to use with Sidekiq (Behaviors::BackgroundAutoIndexer)
 - [x] Move options from concern to class
+- [ ] Search engine elements should be less coupled (i.e. `DumbOrderer` knows about `DumbRanker`, `DumbRanker` expects query to be grouped etc.)

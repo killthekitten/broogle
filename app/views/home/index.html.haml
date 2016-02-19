@@ -10,7 +10,7 @@
 
 .search-results
   .row
-    - if @collection.any?
+    - if @collection.total_count > 0
       = render @collection
     - else
       .search-results__no-results.text-center

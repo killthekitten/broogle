@@ -1,5 +1,8 @@
 .col-sm-12.search-results__item
-  = highlight simple_format(famous_quote.content), famous_quote.highlights
+  = highlighted_text simple_format(famous_quote.content), famous_quote.highlights
   %b
     –
-    = highlight (famous_quote.author.presence || "Anonymous"), famous_quote.highlights
+    = highlighted_text famous_quote.author.presence || "Anonymous", famous_quote.highlights
+
+  %small.pull-right
+    Match rank: #{famous_quote.rank}

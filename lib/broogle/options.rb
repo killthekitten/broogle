@@ -3,7 +3,7 @@ module Broogle
     DEFAULTS = {
       columns: [],
       behaviors: ["::Broogle::Behaviors::Highlighter", "::Broogle::Behaviors::AutoIndexer"],
-      sorter: "::Broogle::Sorters::DumbSorter",
+      orderer: "::Broogle::Orderers::DumbOrderer",
       ranker: "::Broogle::Rankers::DumbRanker",
       splitter: "::Broogle::Splitters::DumbSplitter",
       stemmer: "::Broogle::Stemmers::DumbStemmer",
@@ -24,8 +24,8 @@ module Broogle
       @splitter ||= options[:splitter].constantize
     end
 
-    def sorter
-      @sorter ||= options[:sorter].constantize
+    def orderer
+      @orderer ||= options[:orderer].constantize
     end
 
     def ranker
@@ -33,7 +33,7 @@ module Broogle
     end
 
     def behaviors
-      @ranker ||= options[:behaviors].map(&:constantize)
+      @behaviors ||= options[:behaviors].map(&:constantize)
     end
 
     def columns
