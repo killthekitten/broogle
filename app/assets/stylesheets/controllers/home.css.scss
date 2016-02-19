@@ -5,6 +5,10 @@ $no-results-color: #666;
 .logo {
   margin: 50px auto;
 
+  a:hover {
+    text-decoration: none;
+  }
+
   span {
     color: $logo-color-base;
     display: inline;

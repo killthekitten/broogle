@@ -1,11 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @collection = FamousQuote.search(search_params).page(params[:page]).per(5)
+    @collection = FamousQuote.search(query_string).page(params[:page]).per(3)
   end
 
   private
 
-  def search_params
+  def query_string
     params.fetch(:q, nil)
   end
+  helper_method :query_string
 end

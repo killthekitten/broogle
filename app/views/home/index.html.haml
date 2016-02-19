@@ -1,5 +1,6 @@
 %h1.logo.text-center
-  %span Broogle
+  = link_to root_path do
+    %span Broogle
 
 .row
   = form_tag url_for, method: :get, class: "form-horizontal" do
@@ -15,5 +16,5 @@
     - else
       .search-results__no-results.text-center
         %p Nothing found :(
-        %small Try to change your query
+        %small Try to change your query. Example: #{link_to("selfish", url_for(q: "selfish"))}
     = paginate @collection, theme: :bootstrap

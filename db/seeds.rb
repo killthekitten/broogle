@@ -44,10 +44,62 @@ quote_attributes =
         deserved and have never been able to reach. The world you desire can be won.
         It exists.. it is real.. it is possible.. it's yours.
       END
+    },
+    {
+      author: "David Mitchell",
+      content: <<-END
+        People pontificate, "Suicide is selfishness." Career churchmen like Pater go a step further and call in a
+        cowardly assault on the living.
+
+        Oafs argue this specious line for varying reason: to evade fingers of blame, to
+        impress one's audience with one's mental fiber, to vent anger, or just because one lacks the necessary
+        suffering to sympathize.
+
+        Cowardice is nothing to do with it - suicide takes considerable courage. Japanese have the right idea.
+        No, what's selfish is to demand another to endure an intolerable existence, just to spare families, friends,
+        and enemies a bit of soul-searching.
+      END
+    },
+    {
+      author: "C.S. Lewis",
+      content: <<-END
+        To love at all is to be vulnerable. Love anything and your heart will be wrung and possibly broken.
+        If you want to make sure of keeping it intact you must give it to no one, not even an animal.
+
+        Wrap it carefully round with hobbies and little luxuries; avoid all entanglements.
+        Lock it up safe in the casket or coffin of your selfishness. But in that casket, safe, dark, motionless,
+        airless, it will change. It will not be broken; it will become unbreakable, impenetrable, irredeemable.
+
+        To love is to be vulnerable.
+      END
+    },
+    {
+      author: "Terry Pratchett",
+      content: <<-END
+        All witches are selfish, the Queen had said. But Tiffany’s Third Thoughts said: Then turn selfishness into a
+        weapon! Make all things yours!
+        Make other lives and dreams and hopes yours! Protect them! Save them! Bring them into the sheepfold!
+        Walk the gale for them! Keep away the wolf! My dreams! My brother! My family! My land! My world!
+
+        How dare you try to take these things, because they are mine!
+      END
+    },
+    {
+      author: "Terry Pratchett",
+      content: <<-END
+        Love is always ready to deny itself, to give, sacrifice, just in the measure of its sincerity and intensity.
+        Perfect love is perfect self-forgetfulness. Hence where there is love in a home, unselfishness is the law.
+        Each forgets self and lives for others.
+
+        But where there is selfishness it mars joy. One selfish soul will destroy the sweetness of life in any home.
+        It is like an ugly bush in the midst of a garden of flowers. It was selfishness that destroyed the first home
+        and blighted all the loveliness of Paradise; and it has been blighting lovely things in earth's home ever since.
+        We need to guard against this spirit.
+      END
     }
   ]
 
 quote_attributes.each do |attributes|
-  attributes[:content] = attributes[:content].strip_heredoc.gsub("\n", " ")
+  attributes[:content] = attributes[:content].strip_heredoc.gsub(/(?<!\n)\n(?!\n)/, " ")
   FamousQuote.create! attributes
 end
