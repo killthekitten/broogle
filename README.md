@@ -9,8 +9,6 @@ Broogle tries to be database-agnostic, so it doesn't use any fancy full-text sea
 database provides ;) But it's still up to you to write and use a custom behaviour which exploits the power of your
 stack.
 
-https://broogle.herokuapp.com/
-
 ## Overview
 
 Broogle API is modular and can be customized via "Behaviors", "Rankers", "Orderers", "Stemmers" and "Splitters".
